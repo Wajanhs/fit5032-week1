@@ -110,12 +110,33 @@
       <h2>Attribute, Class and Style Binding with <code>v-bind</code></h2>
       <p>Highlighting Specific Authors:</p>
 
+      <h3>Attribute Binding</h3>
+      <div>
+        <img :src="imageUrl" alt="Dynamic Image" />
+      </div>
+
+      
+      <h3>Class Binding</h3>
+      <div>
+        <button :class="{ active: isActive }" @click="isActive = !isActive">Toggle</button>
+      </div>
+
+      <h3>Style Binding</h3>
+      <div :style="{ color: textColor, fontSize: fontSize + 'px' }">
+        Dynamic Style
+      </div>
+
     </section>
   </div>
 </template>
 
 <script setup>
 import { ref, computed } from "vue"
+const imageUrl = ref('https://example.com/image.jpg')
+const isActive = ref(true)
+const textColor = ref('blue')
+const fontSize = ref(18)
+
 
 // Activity 1: Import JSON files (authors.json and bookstores.json)
 import authors from "../assets/json/authors.json"
